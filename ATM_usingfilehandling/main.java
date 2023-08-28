@@ -124,44 +124,45 @@ public class main {
         Scanner ob=new Scanner(System.in);
         info ob2=new info();
         login ob3=new login();
-
-        System.out.println("----------------------------------------------------------------");
-        System.out.println("WELCOME TO SBI BANK");
-        System.out.println("PRESS 1 TO CREATE NEW ACCOUNT");
-        System.out.println("PRESS 2 TO LOGIN INTO YOUR ACCOUNT");
-        System.out.println("PRESS ANY KEY TO TERMINATE THE SESSION");
-        int choice=ob.nextInt();
-        System.out.println("----------------------------------------------------------------");
-        if(choice==1) {
-            System.out.println("PLEASE ENTER THE FOLLOWING DETAILS TO CREATE AN ACCOUNT");
-            ob2.set();
+        while(true){
             System.out.println("----------------------------------------------------------------");
-            System.out.println("ACCOUNT CREATED SUCCESSFULLY");
+            System.out.println("WELCOME TO SBI BANK");
+            System.out.println("PRESS 1 TO CREATE NEW ACCOUNT");
+            System.out.println("PRESS 2 TO LOGIN INTO YOUR ACCOUNT");
+            System.out.println("PRESS ANY KEY TO TERMINATE THE SESSION");
+            int choice=ob.nextInt();
             System.out.println("----------------------------------------------------------------");
-        }
-        String phno,pin;
-
-        if(choice==2) {
-            System.out.println("ENTER PHONE NUMBER");
-            phno= ob.nextLine();
-            phno= ob.nextLine();
-            System.out.println("ENTER PIN");
-            pin=ob.nextLine();
-            System.out.println("pls wait");
-            if (ob3.check(phno,pin)){
-                System.out.println("-----------------------------------------------------");
-                System.out.println("YOU ARE LOGGED IN");
-                System.out.println("DASHBOARD LOADING PLS WAIT...");
-                String userfile=phno+".txt";
-                mdp ch=new mdp();
-                ch.choice(userfile);
+            if(choice==1) {
+                System.out.println("PLEASE ENTER THE FOLLOWING DETAILS TO CREATE AN ACCOUNT");
+                ob2.set();
                 System.out.println("----------------------------------------------------------------");
-                //call dashboard
+                System.out.println("ACCOUNT CREATED SUCCESSFULLY");
+                System.out.println("----------------------------------------------------------------");
             }
-            else{
-                System.out.println("INCORECT");
+            if(choice==2) {
+                String phno,pin;
+                System.out.println("ENTER PHONE NUMBER");
+                phno= ob.nextLine();
+                phno= ob.nextLine();
+                System.out.println("ENTER PIN");
+                pin=ob.nextLine();
+                System.out.println("pls wait");
+                if (ob3.check(phno,pin)){
+                    System.out.println("-----------------------------------------------------");
+                    System.out.println("YOU ARE LOGGED IN");
+                    System.out.println("DASHBOARD LOADING PLS WAIT...");
+                    String userfile=phno+".txt";
+                    mdp ch=new mdp();
+                    ch.choice(userfile);
+                    System.out.println("----------------------------------------------------------------");
+                    //call dashboard
+                }
+                else{
+                    System.out.println("INCORECT");
+                }
             }
+            else
+                System.out.println("thank you");
         }
-        else System.out.println("thank you");
     }
 }
