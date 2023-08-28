@@ -119,7 +119,7 @@ class login{
             }
         }
     }}
-public class mainc {
+public class main {
     public static void main(String[] args) throws IOException{
         Scanner ob=new Scanner(System.in);
         info ob2=new info();
